@@ -12,10 +12,10 @@ export default function App() {
 
       <div className='App-body'>
         <p>Login to access the full dashboard</p>
-        <label for="email">Email:</label>
+        <label htmlFor="email">Email:</label>
         < input type="email" id="email" name="email" />
 
-        <label for="password">password:</label>
+        <label htmlFor="password">password:</label>
         <input type="password" id="password" name="password" />
 
         <button>OK</button>
