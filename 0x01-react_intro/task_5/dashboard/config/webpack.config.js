@@ -9,7 +9,7 @@ module.exports = {
     // Output configuration
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
     },
 
     // Mode configuration: `development` `production`
@@ -26,10 +26,25 @@ module.exports = {
     module: {
         rules: [
             {
+                // Rules to transpile js & jsx files
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                },
+            },
+
+            {
                 // Rule to handle CSS files
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
+
+
+            
             {
                 // Rule to handle image files
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -44,13 +59,20 @@ module.exports = {
                     },
                 ],
             },
+
+            /*
+            {
+                // Rule to handle image files
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },*/
         ],
     },
 
     // Development server configuration
     devServer: {
         static: {
-            directory: path.resolve(__dirname, './public'),
+            directory: path.resolve(__dirname, '../dist'),
         },
         // port: 8564,
         hot: true,
@@ -59,18 +81,20 @@ module.exports = {
     },
 
     // Optimization configuration for code splitting
+    /*
     optimization: {
         splitChunks: {
           chunks: 'all',
         },
-    },
+    },*/
 
     // Plugins configuration
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html', // Template for the generated HTML file
+        /*new HtmlWebpackPlugin({
+            template: '../src/index.html', // Template for the generated HTML file
             filename: 'index.html',       // Name of the generated HTML file
         }),
         new CleanWebpackPlugin(), // Plugin to clean the output directory before each build
+        */
     ],
 };
