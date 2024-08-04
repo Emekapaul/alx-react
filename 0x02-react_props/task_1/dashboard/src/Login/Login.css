@@ -1,0 +1,15 @@
+.App-body p {
+    margin-left: 50px;
+  }
+  
+  .App-body [for="email"] {
+    margin-left: 50PX;
+  }
+  
+  .App-body label {
+    margin-right: 10PX;
+  }
+  
+  .App-body input {
+    margin-right: 10PX;
+  }
