@@ -1,0 +1,18 @@
+.Notifications {
+    border: 2px dotted #E05050;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    /*width: 96%;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+}
+
+[data-notification-type="default"] {
+    color: blue;
+}
+
+[data-notification-type="urgent"],
+.dangerous-notification {
+    color: red;
+}
