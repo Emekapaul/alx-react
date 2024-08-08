@@ -1,0 +1,18 @@
+table {
+    border: 2px solid rgb(224, 222, 222);
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+th {
+    text-align: left;
+}
+
+th[colSpan] {
+    text-align: center;
+}
+
+thead tr th {
+    border-bottom: 2px solid rgb(224, 222, 222);
+}
