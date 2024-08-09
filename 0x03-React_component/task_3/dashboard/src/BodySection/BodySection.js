@@ -8,3 +8,13 @@ export default function BodySection({ title, Children = null }) {
     </div>
   );
 }
+
+
+BodySection.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
+};
+
+BodySection.defaultProps = {
+  children: null,
+};
