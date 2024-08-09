@@ -1,0 +1,40 @@
+.Notifications {
+    border: 2px dotted #E05050;
+    padding: 1rem;
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+    /*width: 96%;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+}
+
+.Notifications button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: white;
+}
+
+button img {
+    width: 20px;
+    height: 20px;
+}
+
+.Notifications button:hover {
+    background-color: rgb(224, 222, 222);
+}
+
+.menuItem {
+    text-align: end;
+}
+
+[data-notification-type="default"] {
+    color: blue;
+}
+
+[data-notification-type="urgent"],
+.dangerous-notification {
+    color: red;
+}
