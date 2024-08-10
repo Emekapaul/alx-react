@@ -8,6 +8,11 @@ import NotificationItemShape from "./NotificationItemShape";
 
 export default class Notifications extends Component {
 
+  shouldComponentUpdate(nextProps) {
+    // Only update if the new listNotifications has more items than the current one
+    return nextProps.listNotifications.length > this.props.listNotifications.length;
+  }
+
   markAsRead = (id) => {
     console.log(`Notification ${id} has been marked as read`);
   }
