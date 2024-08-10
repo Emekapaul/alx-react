@@ -86,6 +86,50 @@ describe('Notifications component', () => {
 });
 
 describe('Notification Component(mockup)', () => {
+  let initialListNotifications;
+
+  beforeEach(() => {
+    initialListNotifications = [
+      { id: 4, type: 'default', value: 'Notification 4' },
+      { id: 5, type: 'urgent', value: 'Notification 5' },
+    ];
+  });
+
+  test('does not rerender when updating props with the same list', () => {
+    const { rerender } = render(
+      <Notifications listNotifications={initialListNotifications} />
+    );
+
+    // Spy on the render method of the Notifications component
+    const renderSpy = jest.spyOn(Notifications.prototype, 'render');
+
+    // Rerender with the same props
+    rerender(<Notifications listNotifications={initialListNotifications} />);
+
+    // Expect render not to be called again
+    expect(renderSpy).not.toHaveBeenCalled();
+    renderSpy.mockRestore();
+  });
+
+  test('rerenders when updating props with a longer list', () => {
+    const { rerender } = render(
+      <Notifications listNotifications={initialListNotifications} />
+    );
+
+    // Spy on the render method of the Notifications component
+    const renderSpy = jest.spyOn(Notifications.prototype, 'render');
+
+    // Rerender with a longer list
+    const longerListNotifications = [
+      ...initialListNotifications, ...listNotifications
+    ];
+    rerender(<Notifications listNotifications={longerListNotifications} />);
+
+    // Expect render to be called again
+    expect(renderSpy).toHaveBeenCalled();
+    renderSpy.mockRestore();
+  });
+
   test('markAsRead calls console.log with correct message', () => {
     const logSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
 
