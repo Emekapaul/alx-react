@@ -1,6 +1,15 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import CourseListRow from "./CourseListRow";
+import { StyleSheetTestUtils } from 'aphrodite';
+
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+
+afterAll(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 
 describe('CourseListRow Component', () => {
   test('renders one cell with colspan="2" when textSecondCell does not exist and isHeader is true', () => {
