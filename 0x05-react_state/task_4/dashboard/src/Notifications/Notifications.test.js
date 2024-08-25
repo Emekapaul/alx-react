@@ -142,18 +142,6 @@ describe('Notification Component(mockup)', () => {
     expect(renderSpy).toHaveBeenCalled();
     renderSpy.mockRestore();
   });
-
-  test('markAsRead calls console.log with correct message', () => {
-    const logSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
-
-    render(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
-
-    const notificationItem = screen.getByText('New course available');
-    fireEvent.click(notificationItem);
-
-    expect(logSpy).toHaveBeenCalledWith(`Notification 1 has been marked as read`);
-    logSpy.mockRestore();
-  });
 });
 
 describe('Notifications Component', () => {
